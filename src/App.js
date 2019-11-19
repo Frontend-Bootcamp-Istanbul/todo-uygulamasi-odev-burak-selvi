@@ -98,13 +98,13 @@ class App extends Component {
 
                 <TodoList
                     title="Tamamlanmamış Todolar"
-                    todos={[...this.state.todos].filter(todo => todo.checked === false)}
+                    todos={this.state.todos.filter(todo => todo.checked === false)}
                     onTodoRemove={this.removeTodo}
                     onCheckedToggle={this.toggleCompleteStatus} />
 
                 <TodoList
                     title="Tamamlanmış Todolar"
-                    todos={[...this.state.todos].filter(todo => todo.checked === true)}
+                    todos={this.state.todos.filter(todo => todo.checked === true)}
                     onTodoRemove={this.removeTodo}
                     onCheckedToggle={this.toggleCompleteStatus} />
             </div>

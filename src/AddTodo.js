@@ -20,10 +20,12 @@ class AddTodo extends React.Component {
 
     addTodo(event) {
         event.preventDefault();
-        this.props.onTodoAdd(this.state.inputVal);
-        this.setState({
-            inputVal: ""
-        });
+        if (this.state.inputVal.length > 0) {
+            this.props.onTodoAdd(this.state.inputVal);
+            this.setState({
+                inputVal: ""
+            });
+        }
     }
 
     render() {

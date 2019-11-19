@@ -4,7 +4,7 @@ import Todo from './Todo';
 export default function TodoList(props) {
     return (
         <div className="todo-list">
-            <h3>{props.title} {props.todos.length > 0 ? `(${props.todos.length})` : null}</h3>
+            <h3>{props.title} {props.todos.length > 0 && `(${props.todos.length})`}</h3>
             {
                 props.todos.map((todo) => {
                     return <Todo
