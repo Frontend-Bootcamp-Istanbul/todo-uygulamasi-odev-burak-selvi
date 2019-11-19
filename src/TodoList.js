@@ -1,28 +1,20 @@
-import React from 'react';
+import React from 'react'
 import Todo from './Todo';
 
-
-class TodoList extends React.Component{
-    constructor(props){
-        super(props);
-    }
-    render(){
-        return (
-            <div className="todo-list">
-                <h3>{this.props.title}</h3>
-                {
-                    this.props.todos.map((todo) => {
-                        return <Todo
-                            {...todo}
-                            key={todo.id}
-                            onTodoRemove={this.props.onTodoRemove}
-                            onCheckedToggle={this.props.onCheckedToggle}
-                        />
-                    })
-                }
-            </div>
-        );
-    }
+export default function TodoList(props) {
+    return (
+        <div className="todo-list">
+            <h3>{props.title} {props.todos.length > 0 ? `(${props.todos.length})` : null}</h3>
+            {
+                props.todos.map((todo) => {
+                    return <Todo
+                        {...todo}
+                        key={todo.id}
+                        onTodoRemove={props.onTodoRemove}
+                        onCheckedToggle={props.onCheckedToggle}
+                    />
+                })
+            }
+        </div>
+    );
 }
-
-export default TodoList;
